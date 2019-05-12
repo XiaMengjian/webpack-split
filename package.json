@@ -4,7 +4,7 @@
   "description": "Introduce how to use webpack.splitChunks",
   "main": "./src/index.js",
   "scripts": {
-    "default": "webpack --config ./config/webpack.config.common.js",
+    "common": "webpack --config ./config/webpack.config.common.js",
     "chunks": "webpack --config ./config/webpack.config.chunks.js",
     "entry2": "webpack --config ./config/webpack.config.entry2.js",
     "maxInitialRequests": "webpack --config ./config/webpack.config.maxInitialRequests.js",
@@ -24,7 +24,11 @@
     "webpack-bundle-analyzer": "^3.0.3",
     "webpack-cli": "^3.2.1",
     "webpack-merge": "^4.2.1",
-    "vue-loader": "^15.7.0"
+    "vue-loader": "^15.7.0",
+    "css-loader": "^2.1.1",
+    "less": "^3.9.0",
+    "less-loader": "^5.0.0",
+    "vue-template-compiler": "^2.6.10"
   },
   "dependencies": {
     "lodash": "^4.17.11",
