@@ -6,8 +6,6 @@
 <script>
     import _ from 'lodash'
 
-    export default {
-        name: 'Temp3'
-    }
+    export default {}
 </script>
 <style lang="less" scoped></style>

@@ -8,8 +8,6 @@
     import $ from '../assets/jquery'
     import OrgChart from '../assets/orgchart'
 
-    export default {
-        name: 'Temp1'
-    }
+    export default {}
 </script>
 <style lang="less" scoped></style>
