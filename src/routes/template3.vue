@@ -5,5 +5,9 @@
 </template>
 <script>
     import _ from 'lodash'
+
+    export default {
+        name: 'Temp3'
+    }
 </script>
 <style lang="less" scoped></style>

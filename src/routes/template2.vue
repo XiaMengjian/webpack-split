@@ -6,5 +6,9 @@
 <script>
     import _ from 'lodash'
     import $ from '../assets/jquery'
+
+    export default {
+        name: 'Temp2'
+    }
 </script>
 <style lang="less" scoped></style>
