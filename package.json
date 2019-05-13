@@ -29,7 +29,9 @@
     "style-loader": "^0.23.1",
     "less": "^3.9.0",
     "less-loader": "^5.0.0",
-    "vue-template-compiler": "^2.6.10"
+    "vue-template-compiler": "^2.6.10",
+    "mini-css-extract-plugin": "^0.6.0",
+    "terser-webpack-plugin": "^1.2.3"
   },
   "dependencies": {
     "lodash": "^4.17.11",

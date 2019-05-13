@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 
 module.exports = {
@@ -34,9 +35,13 @@ module.exports = {
             {
 
                 test: /\.less$/,
-
-                loader: "style-loader!css-loader!less-loader",
-
+                use: [
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                    },
+                    'css-loader',
+                    'less-loader',
+                ]
             }
         ]
     },
@@ -70,6 +75,10 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, '../public/index.html')
         }),
-        new BundleAnalyzerPlugin(),
+        new MiniCssExtractPlugin({
+            filename: 'css/[name].css',
+            chunkFilename: '[name].[contenthash:8].css',
+        }),
+        // new BundleAnalyzerPlugin(),
     ]
 }
