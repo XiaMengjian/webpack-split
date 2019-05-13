@@ -4,6 +4,7 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
 
 module.exports = {
@@ -52,7 +53,7 @@ module.exports = {
             minChunks: 1,
             maxAsyncRequests: 5,
             maxInitialRequests: 3,
-            automaticNameDelimiter: '---',
+            automaticNameDelimiter: '--',
             name: true,
             cacheGroups: {
                 vendors: {
@@ -66,6 +67,12 @@ module.exports = {
                 }
             }
         },
+        minimizer: [
+            new TerserPlugin({
+                test: /\.js(\?.*)?$/i,
+                cache: true
+            }),
+        ]
     },
     plugins: [
         new CleanWebpackPlugin(['dist'], {
@@ -75,10 +82,16 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, '../public/index.html')
         }),
+        /*
+        *
+        * filename 和 chunkfilename 的区别
+        * Async Chunk => chunkFilename
+        * Sync Chunk (e.g an Entrypoint) => filename
+        * */
         new MiniCssExtractPlugin({
-            filename: 'css/[name].css',
-            chunkFilename: '[name].[contenthash:8].css',
+            filename: 'css/[name].[contenthash:8].css',
+            chunkFilename: 'css/[name].[contenthash:8].css',
         }),
-        // new BundleAnalyzerPlugin(),
+        new BundleAnalyzerPlugin(),
     ]
 }

@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import App from './routes/template2'
-import OrgChart from './assets/orgchart'
+import Echarts from '../assets/echarts'
 
 new Vue({
     el: '#app',
