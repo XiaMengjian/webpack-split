@@ -48,7 +48,7 @@ module.exports = {
     },
     optimization: {
         splitChunks: {
-            chunks: 'initial',
+            chunks: 'initial', // 模块拆分范围：initial 入口文件，async 异步加载模块，all 以上两者
             minSize: 30000,
             minChunks: 1,
             maxAsyncRequests: 5,
