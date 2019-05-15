@@ -1,8 +1,7 @@
 {
   "name": "webpack-splitchunks",
   "version": "1.0.0",
-  "description": "Introduce how to use webpack.splitChunks",
-  "main": "./src/index.js",
+  "description": "splitChunks demo",
   "scripts": {
     "common": "webpack --config ./config/webpack.config.common.js",
     "chunks": "webpack --config ./config/webpack.config.chunks.js",
@@ -10,7 +9,7 @@
     "maxInitialRequests": "webpack --config ./config/webpack.config.maxInitialRequests.js",
     "maxAsyncRequests": "webpack --config ./config/webpack.config.maxAsyncRequests.js"
   },
-  "author": "kwzm",
+  "author": "Xia",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.2.2",

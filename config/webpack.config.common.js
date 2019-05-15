@@ -12,9 +12,9 @@ module.exports = {
     entry: path.resolve(__dirname, '../src/vue1.js'),
     output: {
         path: path.resolve(__dirname, '../dist'),
-        publicPath: '/',
-        filename: '[name].[chunkhash:8].js',
-        chunkFilename: '[name].[chunkhash:8].chunk.js',
+        publicPath: '', // 资源引用路径
+        filename: 'js/[name].[chunkhash:8].js',
+        chunkFilename: 'js/[name].[chunkhash:8].chunk.js',
     },
     resolve: {
         extensions: ['.js', '.vue', '.json'],
@@ -32,7 +32,8 @@ module.exports = {
             {
                 test: /.js$/,
                 exclude: /node_modules/,
-                use: 'babel-loader'
+                use: 'babel-loader',
+                exclude: /node_modules/
             },
             {
 
@@ -83,7 +84,9 @@ module.exports = {
         }),
         new VueLoaderPlugin(),
         new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, '../public/index.html')
+            title: 'Split Demo',
+            template: path.resolve(__dirname, '../public/index.html'),
+            inject: 'body'
         }),
         /*
         *
