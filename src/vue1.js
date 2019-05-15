@@ -6,8 +6,7 @@ import Echarts from './assets/echarts'
 new Vue({
     el: '#app',
     components: {
-        Temp1: () => import(/* webpackChunkName: 'AsyncTemp1' */'./routes/template1.vue')
-        // Temp2
+        Temp1: () => import(/* webpackChunkName: 'asyncTemp1' */'./routes/template1.vue')
     },
     template: '<div> <div>我是Vue1</div><Temp1></Temp1></div>'
 });

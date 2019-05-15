@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import $ from './assets/jquery'
+import html2Canvas from 'html2canvas'
 
 new Vue({
     el: '#app',

@@ -4,7 +4,7 @@
     </div>
 </template>
 <script>
-    import _ from 'lodash'
+    import JSCookie from 'js-cookie'
     import $ from '../assets/jquery'
     import Echarts from '../assets/echarts'
 
