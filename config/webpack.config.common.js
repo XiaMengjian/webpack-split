@@ -75,7 +75,10 @@ module.exports = {
                 cache: true
             }),
         ],
-        removeAvailableModules: false
+        runtimeChunk: {
+            name: "manifest"
+        },
+        removeAvailableModules: true
     },
     plugins: [
         new CleanWebpackPlugin(['dist'], {
