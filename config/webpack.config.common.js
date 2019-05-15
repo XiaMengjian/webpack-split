@@ -12,6 +12,7 @@ module.exports = {
     entry: path.resolve(__dirname, '../src/vue1.js'),
     output: {
         path: path.resolve(__dirname, '../dist'),
+        publicPath: '/',
         filename: '[name].[chunkhash:8].js',
         chunkFilename: '[name].[chunkhash:8].chunk.js',
     },
@@ -48,22 +49,24 @@ module.exports = {
     },
     optimization: {
         splitChunks: {
-            chunks: 'initial',
-            minSize: 30000,
-            minChunks: 1,
-            maxAsyncRequests: 5,
-            maxInitialRequests: 3,
-            automaticNameDelimiter: '--',
-            name: true,
+            chunks: 'async', // 一般可以指定三种形式 all（全部的 chunk，包含所有类型的 chunk）、async（按需加载的 chunk） 和 initial（初始的 chunk）
+            minSize: 30000, // 一个新的 chunk 的最小体积，默认是 30000，即 30K
+            minChunks: 1, // 在分割之前，这个代码块最小应该被引用的次数，默认是 1
+            maxAsyncRequests: 5, // 按需加载时，并行请求的最大数量，默认是 5
+            maxInitialRequests: 3, // 一个入口最大的并行请求数，默认是 3
+            automaticNameDelimiter: '--', // 指定生成名字中的分隔符，Webpack 将使用 chunk 的名字和 chunk 的来源，如 vendors~main.js
+            name: true, // 分割块的名称，提供 true 会自动生成基于 chunk 和缓存组键的名称
             cacheGroups: {
                 vendors: {
-                    test: /[\\/]node_modules[\\/]/,
-                    priority: -10
+                    test: /[\\/]node_modules[\\/]/, // 匹配规则，一般使用正则表达式来匹配
+                    priority: -10, // 抽取公共代码的优先级，数字越大，优先级越高
+                    // enforce: true // 强制抽离 不关心miniChunks miniSize等限制条件
                 },
-                default: {
+                default: { // 默认缓存组的配置
+                    // name: 'common', // 抽取公共代码的 chunk 名字
                     minChunks: 2,
                     priority: -20,
-                    reuseExistingChunk: true
+                    reuseExistingChunk: false // 是否重用 chunk，如果当前块包含已经从主bundle中分离出来的模块，那么它将被重用，而不是生成一个新的模块，一般设置为 true
                 }
             }
         },

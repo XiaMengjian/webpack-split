@@ -3,5 +3,5 @@ import $ from './assets/jquery'
 
 new Vue({
     el: '#app',
-    template: '<div><h1>我是Vue2</h1></div>'
+    template: '<div><h1>我是Vue2</h1><Temp2></Temp2>/div>'
 });
