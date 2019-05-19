@@ -17,6 +17,7 @@ module.exports = {
         chunkFilename: 'js/[name].[chunkhash:8].chunk.js',
     },
     resolve: {
+        // 对于部分文件没有添加类型后缀，默认以js,vue,json扩展补充
         extensions: ['.js', '.vue', '.json'],
         alias: {
             'vue$': 'vue/dist/vue.esm.js',
@@ -57,7 +58,7 @@ module.exports = {
             name: true, // 分割块的名称，提供 true 会自动生成基于 chunk 和缓存组键的名称
             cacheGroups: {
                 vendors: {
-                    test: /[\\/]node_modules[\\/]/, // 匹配规则，一般使用正则表达式来匹配
+                    // test: /[\\/]node_modules[\\/]/, // 匹配规则，一般使用正则表达式来匹配
                     priority: -10, // 抽取公共代码的优先级，数字越大，优先级越高
                     // enforce: true // 强制抽离 不关心miniChunks miniSize等限制条件
                 },
@@ -75,9 +76,12 @@ module.exports = {
                 cache: true
             }),
         ],
-        runtimeChunk: {
-            name: "manifest"
-        },
+        // runtimeChunk: {
+        //     name: "manifest"
+        // },
+        /**
+         * Removes modules from chunks when these modules are already included in all parents
+         */
         removeAvailableModules: true
     },
     plugins: [

@@ -3,6 +3,8 @@ import _ from 'lodash'
 import $ from './assets/jquery'
 import Echarts from './assets/echarts'
 
+console.log('vue2  3 xxx ggggg 反反复复 ttt  frrr ffff')
+
 new Vue({
     el: '#app',
     components: {
