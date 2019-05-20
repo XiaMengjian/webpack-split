@@ -6,6 +6,7 @@
     "common": "webpack --config ./config/webpack.config.common.js",
     "chunks": "webpack --config ./config/webpack.config.chunks.js",
     "entry2": "webpack --config ./config/webpack.config.entry2.js",
+    "reuseExistingChunk": "webpack --config ./config/webpack.config.reuseExistingChunk.js",
     "maxInitialRequests": "webpack --config ./config/webpack.config.maxInitialRequests.js",
     "maxAsyncRequests": "webpack --config ./config/webpack.config.maxAsyncRequests.js",
     "debug": "node --inspect --debug-brk node_modules/.bin/webpack --config ./config/webpack.config.common.js"
