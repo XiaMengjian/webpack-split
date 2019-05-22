@@ -11,7 +11,7 @@ module.exports = merge(common, {
     optimization: {
         splitChunks: {
             chunks: 'all',
-            maxInitialRequests: 3
+            maxInitialRequests: 4
         },
     },
 })

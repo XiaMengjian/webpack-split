@@ -1,9 +1,4 @@
 import Vue from 'vue'
-import _ from 'lodash'
-import $ from './assets/jquery'
-import Echarts from './assets/echarts'
-
-
 new Vue({
     el: '#app',
     components: {

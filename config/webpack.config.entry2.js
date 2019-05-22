@@ -9,7 +9,7 @@ module.exports = merge(common, {
     },
     optimization: {
         splitChunks: {
-            chunks: 'initial',
+            chunks: 'all',
         }
     }
 })
